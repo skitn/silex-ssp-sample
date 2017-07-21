@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>login</title>
+</head>
+<body>
+  <form action="/login_check" method="post">
+      {{error}}<br>
+      ID:<input type="text" name="_username" value="{{ last_username }}" /><br/>
+      PW:<input type="password" name="_password" value="" /><br/>
+      <input type="submit" />
+  </form>
+</body>
+</html>
