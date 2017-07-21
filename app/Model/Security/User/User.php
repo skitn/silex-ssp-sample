@@ -7,7 +7,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 final class User implements UserInterface
 {
     private $u_id;
+
     private $nick;
+
     public function __construct($u_id, $password, $nick)
     {
         $this->u_id = $u_id;
@@ -22,13 +24,12 @@ final class User implements UserInterface
     {
         return [];
     }
-    /**
-     * {@inheritdoc}
-     */
+
     public function setPassword($password)
     {
         $this->password = $password;
     }
+
     /**
      * {@inheritdoc}
      */
@@ -36,20 +37,24 @@ final class User implements UserInterface
     {
         return $this->password;
     }
+
     public function getUId()
     {
         return $this->u_id;
     }
+
     public function getNick()
     {
         return $this->nick;
     }
+
     /**
      * {@inheritdoc}
      */
     public function getSalt()
     {
     }
+
     /**
      * {@inheritdoc}
      */
@@ -57,6 +62,7 @@ final class User implements UserInterface
     {
         return $this->getUId();
     }
+
     /**
      * {@inheritdoc}
      */

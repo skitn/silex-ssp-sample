@@ -5,7 +5,6 @@ namespace App\Model\Security\User;
 use App\Model\Security\User\User;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
 class UserProvider implements UserProviderInterface
@@ -37,7 +36,10 @@ class UserProvider implements UserProviderInterface
         }
 
         $user = $data_list[$user->getUId()];
+
         $userObj = new User($user['u_id'], $user['pass'], $user['nick']);
+
+        // パスワードがセッションに記録されるので削除する
         $userObj->eraseCredentials();
         return $userObj;
     }
