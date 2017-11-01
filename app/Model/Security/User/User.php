@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 final class User implements UserInterface
 {
     private $u_id;
-
+    private $password;
     private $nick;
 
     public function __construct($u_id, $password, $nick)
